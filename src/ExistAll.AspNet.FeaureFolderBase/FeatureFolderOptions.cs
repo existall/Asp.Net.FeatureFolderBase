@@ -1,9 +1,6 @@
 ﻿namespace ExistAll.AspNet.FeaureFolderBase
 {
-	public class Class1
+	public class FeatureFolderOptions
 	{
-		public Class1()
-		{
-		}
 	}
 }

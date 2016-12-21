@@ -4,14 +4,46 @@ namespace ExistAll.AspNet.FeaureFolderBase
 {
 	public static class ServiceCollectionExtensions
 	{
-		public static IMvcBuilder FeatureFolder(this IMvcBuilder target, FeatureFolderOptions options)
+		public static IMvcBuilder AddFeatureFolders(this IMvcBuilder services, FeatureFolderOptions options)
 		{
-			target.AddRazorOptions(o =>
+			Guard.ThrowIfNull(services, nameof(services));
+			Guard.ThrowIfNull(options, nameof(options));
+
+			var expander = new FeatureViewLocationExpander(options);
+
+			services.AddMvcOptions(o =>
 			{
-				o.ViewLocationFormats.Clear();
+				if (options.ViewExtractionOption == ViewExtractionOption.Convention ||
+					options.ViewExtractionOption == ViewExtractionOption.All)
+				{
+					o.Conventions.Add(new FeatureFolerControllerModelConvention(options));
+				}
 			});
 
-			return target;
+			services.AddRazorOptions(o =>
+				{
+					o.ViewLocationFormats.Clear();
+
+					if (options.ViewExtractionOption == ViewExtractionOption.Explicits ||
+						options.ViewExtractionOption == ViewExtractionOption.All)
+					{
+						o.ViewLocationFormats.Add($@"{options.FeatureFolderName}@\{0}.cshtml");
+					}
+
+					if (options.ViewExtractionOption == ViewExtractionOption.Convention ||
+						options.ViewExtractionOption == ViewExtractionOption.All)
+					{
+						o.ViewLocationFormats.Add($@"{options.FeatureNameConvention}@\{0}.cshtml");
+						o.ViewLocationExpanders.Add(expander);
+					}
+				});
+
+			return services;
+		}
+
+		public static IMvcBuilder AddFeatureFolders(this IMvcBuilder services)
+		{
+			return AddFeatureFolders(services, new FeatureFolderOptions());
 		}
 	}
 }

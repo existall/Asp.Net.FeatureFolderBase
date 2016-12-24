@@ -35,10 +35,7 @@ Task("Restore-NuGet-Packages")
         Verbose = true,
         Verbosity = DotNetCoreRestoreVerbosity.Warning
     });
-}).OnError(exception => 
-    {
-        Information(exception.ToString());
-    });
+});
 
 Task("Build")
     .IsDependentOn("Restore-NuGet-Packages")

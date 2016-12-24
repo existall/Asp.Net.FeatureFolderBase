@@ -22,7 +22,7 @@
 Task("Clean")
     .Does(() =>
 {
-    CleanDirectories("./.artfacts");
+    CleanDirectories("./.artifacts");
 });
 
 Task("Restore-NuGet-Packages")
@@ -30,9 +30,9 @@ Task("Restore-NuGet-Packages")
     .Does(() =>
 {
     
-    DotNetCoreRestore("./ExistAll.AspNet.FeautreFolderBase", new DotNetCoreRestoreSettings
+    DotNetCoreRestore("./ExistAll.AspNet.FeatureFolderBase", new DotNetCoreRestoreSettings
     {
-        Verbose = true,
+        Verbose = false,
         Verbosity = DotNetCoreRestoreVerbosity.Warning
     });
 });
@@ -54,8 +54,8 @@ Task("Create-NuGet-Packages")
         DotNetCorePack("./ExistAll.AspNet.FeatureFolderBase", new DotNetCorePackSettings 
         {
             OutputDirectory = "./.artifacts",
-            NoBuild = true,
-            Verbose = false
+            Verbose = false,
+            Configuration = "Release"
         });
     });
 

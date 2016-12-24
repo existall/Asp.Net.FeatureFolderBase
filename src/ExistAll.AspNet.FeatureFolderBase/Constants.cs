@@ -1,4 +1,4 @@
-﻿namespace ExistAll.AspNet.FeaureFolderBase
+﻿namespace ExistAll.AspNet.FeatureFolderBase
 {
 	internal static class Constants
 	{

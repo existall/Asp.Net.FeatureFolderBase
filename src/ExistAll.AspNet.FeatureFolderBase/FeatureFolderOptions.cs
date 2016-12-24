@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ExistAll.AspNet.FeaureFolderBase
+﻿namespace ExistAll.AspNet.FeatureFolderBase
 {
 	public class FeatureFolderOptions
 	{

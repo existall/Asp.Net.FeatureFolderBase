@@ -29,18 +29,22 @@ Task("Restore-NuGet-Packages")
     .IsDependentOn("Clean")
     .Does(() =>
 {
-    DotNetCoreRestore("./ExistAll.AspNet.FeaureFolderBase", new DotNetCoreRestoreSettings
+    
+    DotNetCoreRestore("./ExistAll.AspNet.FeautreFolderBase", new DotNetCoreRestoreSettings
     {
-        Verbose = false,
+        Verbose = true,
         Verbosity = DotNetCoreRestoreVerbosity.Warning
     });
-});
+}).OnError(exception => 
+    {
+        Information(exception.ToString());
+    });
 
 Task("Build")
     .IsDependentOn("Restore-NuGet-Packages")
     .Does(() =>
 {
-        DotNetCoreBuild("./ExistAll.AspNet.FeaureFolderBase", new DotNetCoreBuildSettings {
+        DotNetCoreBuild("./ExistAll.AspNet.FeatureFolderBase", new DotNetCoreBuildSettings {
             Configuration = "Release"
         });
     
@@ -50,9 +54,9 @@ Task("Create-NuGet-Packages")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        DotNetCorePack("./ExistAll.AspNet.FeaureFolderBase", new DotNetCorePackSettings 
+        DotNetCorePack("./ExistAll.AspNet.FeatureFolderBase", new DotNetCorePackSettings 
         {
-            OutputDirectory = "./artifacts",
+            OutputDirectory = "./.artifacts",
             NoBuild = true,
             Verbose = false
         });

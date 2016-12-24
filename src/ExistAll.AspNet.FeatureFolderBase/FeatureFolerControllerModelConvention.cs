@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
-namespace ExistAll.AspNet.FeaureFolderBase
+namespace ExistAll.AspNet.FeatureFolderBase
 {
 	internal class FeatureFolerControllerModelConvention : IControllerModelConvention
 	{

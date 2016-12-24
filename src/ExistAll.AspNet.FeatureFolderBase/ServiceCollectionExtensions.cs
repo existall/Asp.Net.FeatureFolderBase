@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace ExistAll.AspNet.FeaureFolderBase
+namespace ExistAll.AspNet.FeatureFolderBase
 {
 	public static class ServiceCollectionExtensions
 	{

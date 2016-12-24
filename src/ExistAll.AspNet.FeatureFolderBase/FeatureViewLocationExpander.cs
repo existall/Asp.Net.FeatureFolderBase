@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Razor;
 
-namespace ExistAll.AspNet.FeaureFolderBase
+namespace ExistAll.AspNet.FeatureFolderBase
 {
 	internal class FeatureViewLocationExpander : IViewLocationExpander
 	{

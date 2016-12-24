@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExistAll.AspNet.FeaureFolderBase
+namespace ExistAll.AspNet.FeatureFolderBase
 {
 	internal static class Guard
 	{

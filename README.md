@@ -10,3 +10,26 @@ of the view it should render. Thus means that Controllers should be in the Contr
 
 Feature Folder Base provides a way to structure your project around the features. Gather the feature Views, Models and Controllers in one folder.
 
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{			
+	services.AddMvc()
+	    .AddFeatureFolders();
+}
+```
+
+The Default value for the main folder is Application changing the main folder name simply use FeatureFolderOptions:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{			
+	services.AddMvc()				
+        .AddFeatureFolders(new FeatureFolderOptions()
+		{
+		    FeatureFolderName = "SomeFolder"
+		});
+}
+```
+
+
+

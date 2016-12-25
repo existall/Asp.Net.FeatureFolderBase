@@ -1,4 +1,4 @@
-# Asp.Net.FeatureFolderBase
+# ExistAll.AspNet.FeatureFolderBase
 
 ### Installation
 ```
@@ -31,5 +31,19 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+FeatureFolderBase supports Conventions and Explicit View location:
 
+## Explicit View Location:
+
+By creating a new folder under the Appication folder and placing the view under that folder we can give the View method only the name of the folder and the view and FeatureFolderBase will search for the view under ```Application/NewFolderName/ViewName```
+
+```csharp 
+public class SomeController : Controller
+{
+	public IActionResult NotImportantName()
+	{
+		return View("FeatureFolder/FeatureView"); // the view should be in Application/FeatureFloder/FeatureView.cshtml
+	}
+}
+```
 

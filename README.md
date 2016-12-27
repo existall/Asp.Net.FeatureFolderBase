@@ -31,7 +31,18 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-FeatureFolderBase supports Conventions and Explicit View location:
+FeatureFolderBase supports Conventions and or Explicit View location:
+
+By setting ```FeatureFolderOptions.ViewExtractionOption``` you can choose what FeatureFolderBase will support
+
+```csharp
+public enum ViewExtractionOption
+{
+	Explicits,
+	Convention,
+	All
+}
+```
 
 ## Explicit View Location:
 
@@ -47,3 +58,16 @@ public class SomeController : Controller
 }
 ```
 
+## Convention View Location
+
+```csharp 
+namespace Company.Application.Home // The convention is based upon namespace --> folder structure
+
+public class SomeController : Controller
+{
+	public IActionResult ViewName()
+	{
+		return View(); // the view should be in Application/Home/ViewName.cshtml
+	}
+}
+```

@@ -27,13 +27,13 @@ namespace ExistAll.AspNet.FeatureFolderBase
 					if (options.ViewExtractionOption == ViewExtractionOption.Explicits ||
 						options.ViewExtractionOption == ViewExtractionOption.All)
 					{
-						o.ViewLocationFormats.Add($@"{options.FeatureFolderName}\{0}.cshtml");
+						o.ViewLocationFormats.Add($@"{options.FeatureFolderName}\{{0}}.cshtml");
 					}
 
 					if (options.ViewExtractionOption == ViewExtractionOption.Convention ||
 						options.ViewExtractionOption == ViewExtractionOption.All)
 					{
-						o.ViewLocationFormats.Add($@"{options.FeatureNameConvention}\{0}.cshtml");
+						o.ViewLocationFormats.Add($@"{options.FeatureNameConvention}\{{0}}.cshtml");
 						o.ViewLocationExpanders.Add(expander);
 					}
 				});

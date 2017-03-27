@@ -1,14 +1,16 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
+[assembly:InternalsVisibleTo("ExistAll.Asp.Net.FeatureFolderBase.UnitTests")]
 namespace ExistAll.AspNet.FeatureFolderBase
 {
-	internal class FeatureFolerControllerModelConvention : IControllerModelConvention
+	internal class FeatureFolderControllerModelConvention : IControllerModelConvention
 	{
 		private readonly string _folderName;
 
-		public FeatureFolerControllerModelConvention(FeatureFolderOptions options)
+		public FeatureFolderControllerModelConvention(FeatureFolderOptions options)
 		{
 			_folderName = options.FeatureFolderName;
 		}
@@ -16,7 +18,7 @@ namespace ExistAll.AspNet.FeatureFolderBase
 		public void Apply(ControllerModel controller)
 		{
 			Guard.ThrowIfNull(controller, nameof(controller));
-			
+
 			var path = GetFeaturePathByNamespace(controller);
 			controller.Properties.Add(Constants.ControllerPropertyKey, path);
 		}

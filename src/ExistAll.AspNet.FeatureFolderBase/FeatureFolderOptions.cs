@@ -13,7 +13,6 @@
 
 		public string FeatureFolderName { get; set; }
 
-
 		public string FeatureNameConvention { get; set; }
 	}
 }

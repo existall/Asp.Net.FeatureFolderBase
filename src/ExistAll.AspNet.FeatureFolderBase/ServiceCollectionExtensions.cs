@@ -16,7 +16,7 @@ namespace ExistAll.AspNet.FeatureFolderBase
 				if (options.ViewExtractionOption == ViewExtractionOption.Convention ||
 					options.ViewExtractionOption == ViewExtractionOption.All)
 				{
-					o.Conventions.Add(new FeatureFolerControllerModelConvention(options));
+					o.Conventions.Add(new FeatureFolderControllerModelConvention(options));
 				}
 			});
 

@@ -1,14 +1,51 @@
 # ExistAll.AspNet.FeatureFolderBase
 
-### Installation
-```
-    Install-Package ExistAll.AspNet.FeatureFolderBase 
-```
-
 Microsoft MVC is a wonderful tool, Yet out of the box it uses convention based Mapping between controllers and actions to the name
 of the view it should render. Thus means that Controllers should be in the Controllers Folder and Views should be in the Views Folder.
 
 Feature Folder Base provides a way to structure your project around the features. Gather the feature Views, Models and Controllers in one folder.
+
+### Classic MVC Folder Structure
+```
+|-- MVC Project
+    |-- Controllers
+    |  |-- AboutController.cs
+    |  |-- HomeController.cs
+    |  |-- ContactController.cs
+    |-- Models
+    |  |-- About.cs
+    |  |-- Home.cs
+    |  |-- Contact.cs
+    |-- Views
+       |-- About.cshtml
+       |-- Home.cshtml
+       |-- Contact.cshtml
+```
+
+### Feature Folder Structure
+```
+|-- MVC Project
+    |-- About
+    |  |-- AboutController.cs
+    |  |-- About.cs
+    |  |-- About.cshtml
+    |-- Home
+    |  |-- HomeController.cs
+    |  |-- Home.cs
+    |  |-- Home.cshtml 
+    |-- Contact
+       |-- ContactController.cs
+       |-- Contact.cs
+       |-- Contact.cshtml
+```
+
+
+## Installation
+```
+    Install-Package ExistAll.AspNet.FeatureFolderBase 
+```
+
+
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

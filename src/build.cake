@@ -30,11 +30,7 @@ Task("Restore-NuGet-Packages")
     .Does(() =>
 {
     
-    DotNetCoreRestore("./ExistAll.AspNet.FeatureFolderBase", new DotNetCoreRestoreSettings
-    {
-        Verbose = false,
-        Verbosity = DotNetCoreRestoreVerbosity.Warning
-    });
+    DotNetCoreRestore("./ExistAll.AspNet.FeatureFolderBase");
 });
 
 Task("Build")
